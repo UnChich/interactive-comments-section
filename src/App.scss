@@ -14,7 +14,128 @@ $font-size-paragraph: 16px;
 .app {
   font-family: "Rubik", sans-serif;
   background-color: $very-light-gray;
+  min-height: 100vh;
+  letter-spacing: 0.2px;
+  .main {
+    padding-top: 5vh;
+    .comment {
+      background-color: $white;
+      border-radius: 8px;
+      padding: 16px;
+      color: $grayish-blue;
+      display: flex;
+      flex-direction: column;
+      .comment-info-group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .user_image {
+          width: 32px;
+          height: 32px;
+        }
+        .user_name {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          font-weight: 500;
+          color: $dark-blue;
+          padding-left: 16px;
+        }
+
+        .comment_date {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding-left: 16px;
+        }
+      }
+
+      .comment-content-container {
+        padding: 16px 0 16px 16px;
+      }
+
+      .button-group {
+        Button {
+          background: $very-light-gray;
+          border: none;
+          color: $moderate-blue;
+          font-weight: 500;
+        }
+
+        .button-one {
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+
+        .button-three {
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+      }
+
+      .reply-group {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        Button {
+          background: $white;
+          border: none;
+          color: $moderate-blue;
+          font-weight: 500;
+        }
+      }
+    }
+  }
 }
 
-@media screen and (min-width: 376px) {
+// move this into proper place
+.disabled {
+  pointer-events: none;
+}
+
+@media screen and (min-width: 768px) {
+  .comment {
+    max-width: 50vw;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .app {
+    .main {
+      .comment {
+        flex-direction: row;
+
+        .group-one {
+          order: 1;
+          padding-left: 16px;
+        }
+        .button-group-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .button-group {
+            display: flex;
+            flex-direction: column;
+            width: 40px;
+            height: 100px;
+            .button-one {
+              border-radius: 10px 10px 0 0;
+            }
+
+            .button-three {
+              border-radius: 0 0 10px 10px;
+            }
+          }
+        }
+
+        .reply-group {
+          Button {
+            float: right;
+          }
+        }
+      }
+    }
+  }
 }
